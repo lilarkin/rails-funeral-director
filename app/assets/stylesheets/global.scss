@@ -1,0 +1,112 @@
+/*===============================================================
+    NAVBAR 
+================================================================*/
+
+// .brand-image {
+//   height: 100%;
+// }
+
+// .navbar {
+//   color: white !important;
+//   background-color: #C76114;
+//   border: none;
+// }
+
+// .navbar-default .navbar-nav > li > a {
+//   color: white;
+// }
+
+// .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+//   background-color: darken(#C76114, 5%);
+//   color: white;
+// }
+
+/*===============================================================
+    FLASH
+================================================================*/
+
+.flash {
+ text-align: center;
+ font-size: 22px;
+ width: 100%;
+ height: 50px;
+ border-radius: 10px;
+ background-color: lightgrey;
+}
+
+.flash.info {
+ background-color: lightgrey;
+}
+
+.flash.error {
+ background-color: lightcoral;
+}
+
+.flash.success {
+ background-color: lightgreen;
+ color: white;
+}
+
+/*===============================================================
+    BACKGROUNDS
+================================================================*/
+
+// body, html {
+//   background: linear-gradient(to right bottom, 	#CDAA7D, white);
+//   // background-color: #FFDEAD;
+//   size: cover;
+//   height: 100%;
+// }
+
+body.homepage-img {
+  background-image: url(/assets/cemetery.jpg);
+  background-size: cover;
+}
+
+body.mortuary-img {
+  background-image: url(/assets/mortuary.jpg);
+  background-size: cover;
+}
+
+body.deceased-img {
+  background-image: url(/assets/grass.jpg);
+  background-size: cover;
+}
+
+body.funeral-img {
+  background-image: url(/assets/funeral.jpg);
+  background-size: cover;
+}
+
+/*===============================================================
+    BUTTONS
+================================================================*/
+
+.btn {
+  color: white;
+  background-color: #ED9121;
+  border: none;
+}
+
+.btn:hover {
+  background-color: white;
+}
+/*===============================================================
+    OTHER STYLING
+================================================================*/
+
+.cover {
+  background-color: rgba(238,	207,	161, 0.5);
+  padding: 10px 0 10px 0;
+}
+
+.margin {
+  margin-top: 10px;
+}
+
+.stones {
+  background-image: url(/assets/granit.jpg);
+  background-size: cover; 
+  border-radius: 10px;
+}
+

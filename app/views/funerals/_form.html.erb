@@ -1,0 +1,22 @@
+<%= form_for [@deceased, @funeral] do |f| %>
+  <div class='field'>
+    <div class='card'>
+      <h3><%= f.label 'location', autofocus: true %></h3>
+      <h5><%= f.text_field :location %></h5>
+    </div><br />
+    
+    <div class='card'>
+      <h3><%= f.label :time %></h3>
+      <h5><%= f.time_field :time %></h5>
+    </div><br />
+
+    <div class='card'>
+      <h3><%= f.label :date %></h3>
+      <h5><%= f.date_field :date %></h5>
+    </div><br />
+
+
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn grey darken-2' %>
+<% end %>

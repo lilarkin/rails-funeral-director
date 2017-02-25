@@ -1,2 +1,16 @@
-<h1>Funerals#index</h1>
-<p>Find me in app/views/funerals/index.html.erb</p>
+<h1>The Funeral</h1>
+
+<div class='field'>
+  <% if @funerals.nil? %>
+    <h4>There is no funeral. Please add it.</h4>
+  <% else %>
+    <% @funerals.each do |funeral| %>
+      <div class='col s12 m3'>
+        <h5><%= funeral.location %> Funeral</h5>
+        <%= link_to 'Show', deceased_funeral_path(@deceased, funeral), class: 'btn' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'New Funeral', new_deceased_funeral_path(@deceased), class: 'btn grey darken-2' %>

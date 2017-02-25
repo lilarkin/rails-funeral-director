@@ -1,16 +1,19 @@
 class MortuariesController < ApplicationController
   before_action :set_mortuary, only: [:show, :edit, :update, :destroy]
   def index
+    @body_class = 'mortuary-img'
     @title = 'These are the Mortuaries'
     @mortuaries = current_user.mortuaries.paginate(page: params[:page], per_page: 5)
     flash[:info] = 'Welcome to Mortuaries'
   end
 
   def show
+    @body_class = 'mortuary-img'
     @title = @mortuary.name
   end
 
   def new
+    @body_class = 'mortuary-img'
     @title = 'Add New Mortuary'
     @mortuary = Mortuary.new
   end
@@ -27,6 +30,7 @@ class MortuariesController < ApplicationController
   end
 
   def edit
+    @body_class = 'mortuary-img'
     @title = 'Edit Mortuary'
   end
 

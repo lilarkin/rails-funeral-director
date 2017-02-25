@@ -3,16 +3,19 @@ class DeceasedsController < ApplicationController
   before_action :set_deceased, only: [:show, :edit, :update, :destroy]
 
 def index
+  @body_class = 'deceased-img'
   @title = 'Deceased'
   @deceaseds = @mortuary.deceaseds.paginate(page: params[:page], per_page: 6)
   flash[:info] = "These are the Deceased"
 end
 
 def show
+  @body_class = 'deceased-img'
   @title = @deceased.funeral
 end
 
 def new
+  @body_class = 'deceased-img'
   @title = 'Add New Deceased'
   @deceased = Deceased.new
 end
@@ -29,6 +32,7 @@ def create
 end
 
 def edit
+  @body_class = 'deceased-img'
   @title = 'Edit This Person'
 end
 

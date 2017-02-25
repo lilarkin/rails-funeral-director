@@ -1,20 +1,20 @@
 <%= form_for @mortuary do |f| %>
   <div class='field'>
-    <div class=''>
+    <div class='card'>
       <h3><%= f.label :name, autofocus: true %></h3>
       <h5><%= f.text_field :name %></h5>
     </div><br />
     
-    <div class=''>
+    <div class='card'>
       <h3><%= f.label :city %></h3>
       <h5><%= f.text_field :city %></h5>
     </div><br />
 
-    <div class=''>
+    <div class='card'>
       <h3><%= f.label :state %></h3>
       <h5><%= f.text_field :state %></h5>
     </div><br />
   </div>
 
-  <%= f.submit 'Submit', class: 'btn'%>
+  <%= f.submit 'Submit', class: 'btn grey darken-2'%>
 <% end %>

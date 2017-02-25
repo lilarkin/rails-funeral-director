@@ -3,22 +3,26 @@ class FuneralsController < ApplicationController
   before_action :set_funeral, only: [:show, :edit, :update, :destroy]
 
 def index
+  @body_class = 'funeral-img'
   @title = 'Funerals'
-  @funerals = @deceased.funerals
+  @funerals = @deceased.funeral
   flash[:info] = "This is Deceased's Funeral"
 end
 
 def show
-  @title = @deceaced.funeral
+  @body_class = 'funeral-img'
+  @title = 'Funeral'
 end
 
 def new
+  @body_class = 'funeral-img'
   @title = 'Add Funeral'
   @funeral = Funeral.new
 end
 
 def create
-  @funeral = @deceased.funerals.new(funeral_params)
+  @funeral = Funeral.new(funeral_params)
+  @funeral.deceased_id = @deceased.id
     if @funeral.save
       flash[:success] = 'New Funeral Created'
       redirect_to deceased_funeral_path(@deceased, @funeral)
@@ -29,6 +33,7 @@ def create
 end
 
 def edit
+  @body_class = 'funeral-img'
   @title = 'Edit Funeral'
 end
 
@@ -57,6 +62,6 @@ private
   end
 
   def set_funeral
-    @funeral = @deceased.funerals.find(params[:id])
+    @funeral = @deceased.funeral
   end
 end

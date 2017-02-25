@@ -1,15 +1,15 @@
 
 <h1 class="center">The Deceased</h3>
 <br />
-<div class="container">
+
   <div class="row">
     <% if @deceaseds.any? %>
       <% @deceaseds.each do |deceased| %>
         <div class="col s12 m6">
           <div class="z-depth-5">
-            <div class="card">
+            <div class="card stones">
               <div class="card-content">
-                <span class="card-title black-text"><%= deceased.birthdate %>___________________________
+                <span class="card-title black-text"><%= deceased.birthdate %>___________
                                                     <%= deceased.deathdate %> 
                 </span><br />
                 <span class="card-title black-text"><%= deceased.full_name %></span><br />
@@ -18,13 +18,13 @@
               </div>
             </div>
           </div>
+         <%= link_to 'Show', mortuary_deceased_path(@mortuary, deceased), class: 'btn grey darken-2' %>
         </div>
       <% end %>
     <% else %>
       <h4>There are no deceased </h4>
     <% end %>
   </div>
-</div>
 
-<%= link_to 'Back', :back, class: 'btn' %>
-<%= link_to 'Add New Deceased', new_mortuary_deceased_path(@mortuary), class: 'btn' %>
+<%= link_to 'Back', :back, class: 'btn grey darken-2' %>
+<%= link_to 'Add New Deceased', new_mortuary_deceased_path(@mortuary), class: 'btn grey darken-2' %>

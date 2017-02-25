@@ -5,8 +5,8 @@
     <% @mortuaries.each do |mortuary| %>
       <div class='col s12 m3'>
         <h5><%= mortuary.name %></h5>
-        <%= link_to 'Show', mortuary_path(mortuary), class: 'btn' %>
-        <%= link_to 'The Deceased', mortuary_deceaseds_path(mortuary), class: 'btn' %>
+        <%= link_to 'Show', mortuary_path(mortuary), class: 'btn grey darken-2' %>
+        <%= link_to 'The Deceased', mortuary_deceaseds_path(mortuary), class: 'btn grey darken-2' %>
       </div>
     <% end %>
   <% else %>
@@ -14,7 +14,7 @@
   <% end %>
 </div>
 
-<%= link_to 'New Mortuary', new_mortuary_path %>
+<%= link_to 'New Mortuary', new_mortuary_path, class: 'btn grey darken-2 margin' %>
 
 <div class=''>
   <%= will_paginate @mortuary %>
