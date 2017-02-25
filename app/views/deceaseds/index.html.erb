@@ -1,2 +1,30 @@
-<h1>Deceaseds#index</h1>
-<p>Find me in app/views/deceaseds/index.html.erb</p>
+
+<h1 class="center">The Deceased</h3>
+<br />
+<div class="container">
+  <div class="row">
+    <% if @deceaseds.any? %>
+      <% @deceaseds.each do |deceased| %>
+        <div class="col s12 m6">
+          <div class="z-depth-5">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title black-text"><%= deceased.birthdate %>___________________________
+                                                    <%= deceased.deathdate %> 
+                </span><br />
+                <span class="card-title black-text"><%= deceased.full_name %></span><br />
+                <span class="card-title black-text"><h3>Died Doing What They Loved</h3></span>
+                <span class="card-title black-text"><%= deceased.cod %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h4>There are no deceased </h4>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back', :back, class: 'btn' %>
+<%= link_to 'Add New Deceased', new_mortuary_deceased_path(@mortuary), class: 'btn' %>

@@ -5,7 +5,7 @@ class FuneralsController < ApplicationController
 def index
   @title = 'Funerals'
   @funerals = @deceased.funerals
-  flash[:info] = "The Deceased's Funeral"
+  flash[:info] = "This is Deceased's Funeral"
 end
 
 def show
@@ -20,7 +20,7 @@ end
 def create
   @funeral = @deceased.funerals.new(funeral_params)
     if @funeral.save
-      flash[:success] = 'New Funeral Set'
+      flash[:success] = 'New Funeral Created'
       redirect_to deceased_funeral_path(@deceased, @funeral)
     else
       flash[:error] = 'Please Try Again'
@@ -29,7 +29,7 @@ def create
 end
 
 def edit
-  @title = 'Edit This Funeral'
+  @title = 'Edit Funeral'
 end
 
 def update

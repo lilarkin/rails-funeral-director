@@ -1,7 +1,7 @@
 class MortuariesController < ApplicationController
   before_action :set_mortuary, only: [:show, :edit, :update, :destroy]
   def index
-    @title = 'Mortuaries'
+    @title = 'These are the Mortuaries'
     @mortuaries = current_user.mortuaries.paginate(page: params[:page], per_page: 5)
     flash[:info] = 'Welcome to Mortuaries'
   end
@@ -11,7 +11,7 @@ class MortuariesController < ApplicationController
   end
 
   def new
-    @title = 'Add Mortuary'
+    @title = 'Add New Mortuary'
     @mortuary = Mortuary.new
   end
 
@@ -21,7 +21,7 @@ class MortuariesController < ApplicationController
       flash[:success] = 'Mortuary Created'
       redirect_to mortuary_path(@mortuary)
     else
-      flash[:error] = 'Try again'
+      flash[:error] = 'Please Try again'
       render :new
     end
   end
@@ -35,7 +35,7 @@ class MortuariesController < ApplicationController
       flash[:success] = 'Morturary updated'
       redirect_to mortuary_path(@mortuary)
     else
-      flash[:error] = 'Try again'
+      flash[:error] = 'Please Try again'
       render :edit
     end
   end
@@ -54,5 +54,4 @@ class MortuariesController < ApplicationController
     def mortuary_params
       params.require(:mortuary).permit(:name, :city, :state)
     end
-
 end

@@ -1,2 +1,16 @@
-<h1>Mortuaries#show</h1>
-<p>Find me in app/views/mortuaries/show.html.erb</p>
+<h1>The Mortuary</h1>
+
+<ul>
+  <h3 class='field'>
+    <div class=''>
+      <li>Name: <%= @mortuary.name %> </li>
+    </div>
+  </h3>
+    <li>
+      <%= link_to 'Edit', edit_mortuary_path(@mortuary), class: 'btn' %>
+      <%= link_to 'Delete', mortuary_path(@mortuary), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn orange white-text' %>
+    </li>
+</ul>
+
+<%= link_to 'Back', :back, class: 'btn' %>
+<%= link_to 'Deceased Home', mortuary_deceaseds_path(@mortuary) %>

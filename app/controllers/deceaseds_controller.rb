@@ -4,16 +4,16 @@ class DeceasedsController < ApplicationController
 
 def index
   @title = 'Deceased'
-  @deceaseds = @mortraries.deceasedspaginate(page: params[:page], per_page: 6)
-  flash[:info] = "Who's Dead?"
+  @deceaseds = @mortuary.deceaseds.paginate(page: params[:page], per_page: 6)
+  flash[:info] = "These are the Deceased"
 end
 
 def show
-  @title = @deceaced.funeral
+  @title = @deceased.funeral
 end
 
 def new
-  @title = 'Add New Dead Stiff'
+  @title = 'Add New Deceased'
   @deceased = Deceased.new
 end
 
@@ -59,5 +59,4 @@ private
   def set_deceased
     @deceased = @mortuary.deceaseds.find(params[:id])
   end
-
 end
