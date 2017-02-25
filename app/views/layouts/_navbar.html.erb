@@ -1,0 +1,35 @@
+<nav class=''>
+  <div class='nav-wrapper'>
+    <h1 class='brand-logo'><%= @title if @title %></h1>
+    <a href="#!" class="brand-logo"></a>
+    <a href="#" data-activates="mobile" class="button-collapse">
+      <i class="fa fa-bars"></i>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to 'Home', :root %></li>
+      <li><%= link_to 'Morturaries Home', mortuaries_path %></li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="active">
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="side-nav" id="mobile">
+      <li><%= link_to 'Home', :root %></li>
+      <li><%= link_to 'Mortuaries Home', mortuaries_path %></li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+      <li class="active">
+        <%= link_to 'Login', new_user_session_path %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</nav>

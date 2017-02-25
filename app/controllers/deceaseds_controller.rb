@@ -1,13 +1,63 @@
 class DeceasedsController < ApplicationController
-  def index
+  before_action :set_mortuary
+  before_action :set_deceased, only: [:show, :edit, :update, :destroy]
+
+def index
+  @title = 'Deceased'
+  @deceaseds = @mortraries.deceasedspaginate(page: params[:page], per_page: 6)
+  flash[:info] = "Who's Dead?"
+end
+
+def show
+  @title = @deceaced.funeral
+end
+
+def new
+  @title = 'Add New Dead Stiff'
+  @deceased = Deceased.new
+end
+
+def create
+  @deceased = @mortuary.deceaseds.new(deceased_params)
+    if @deceased.save
+      flash[:success] = 'New Deceased Created'
+      redirect_to mortuary_deceased_path(@mortuary, @deceased)
+    else
+      flash[:error] = 'Please Try Again'
+      render :new
+    end
+end
+
+def edit
+  @title = 'Edit This Person'
+end
+
+def update
+  if @deceased.update(deceased_params)
+    flash[:success] = 'Deceased Updated'
+    redirect_to mortuary_deceased_path(@mortuary, @deceased)
+  else
+    flash[:error] = 'Please Try Again'
+    render :edit
+  end
+end
+
+def destroy
+  @deceased.destroy
+  redirect_to mortuary_deceaseds_path(@mortuary)
+end
+
+private
+  def deceased_params
+    params.require(:deceased).permit(:first_name, :last_name, :birthdate, :deathdate, :cod, :mortruay_id)
   end
 
-  def show
+  def set_mortuary
+    @mortuary = Mortuary.find(params[:mortuary_id])
   end
 
-  def new
+  def set_deceased
+    @deceased = @mortuary.deceaseds.find(params[:id])
   end
 
-  def edit
-  end
 end
