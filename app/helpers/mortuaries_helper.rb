@@ -1,0 +1,2 @@
+module MortuariesHelper
+end
